@@ -21,6 +21,35 @@
                 <% } %>
     </nav>
     <main>
+        <table id="fullList">
+            <thead>
+                <tr>
+                    <th>Recipe</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% recipeDocs.forEach(function(r) { %>
+                    <tr>
+                        <td>
+                            <%= r.recipeName %>
+                        </td>
+                        <td>
+                            <%= r.prepTime %>
+                        </td>
+                        <td>
+                            <%= r.cookTime %>
+                        </td>
+                        <td>
+                            <%= r.ingredients %>
+                        </td>
+                        <td><a href="/recipes/<%= r._id %>">DETAILS</a></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+
+        </table>
     </main>
 </body>
 

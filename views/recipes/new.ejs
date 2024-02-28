@@ -10,7 +10,7 @@
 
 <body>
     <nav>
-        <img src="/images/camera.svg">
+        <!-- <img src="/images/*add image*"> -->
         <!-- A tag is how the client makes an HTTP get request  -->
         <a href="/recipes">ALL RECIPES</a>
         <% if (user) { %>
@@ -21,6 +21,22 @@
                 <% } %>
     </nav>
     <main>
+        <h2>Enter a New Recipe</h2>
+        <form action="/recipes" method="POST">
+            <label>Title:
+                <input type="text" name="recipeName">
+            </label><br>
+            <label>Prep Time (in minutes):
+                <input type="number" name="prepTime">
+            </label><br>
+            <label>Cook Time (in minutes):
+                <input type="number" name="cookTime">
+            </label><br>
+            <label>Ingredients:
+                <input type="string" name="ingredients">
+            </label><br>
+            <button type="submit">Add Recipe</button>
+        </form>
     </main>
 </body>
 

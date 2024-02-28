@@ -1,9 +1,39 @@
+// Need to talk to our database for all CRUD operations
 const RecipeModel = require('../models/recipe.js')
 
 module.exports = {
     new: newRecipe,
-    index
+    create: create,
+    index: index,
+    show: show
+}
 
+async function show(req, res) {
+    try {
+        const recipeFromTheDatabase = await RecipeModel
+                                            .findById(req.params.id)
+                                            .exec()
+    
+     res.render('recipes/show', {
+        recipe: recipeFromTheDatabase
+     });
+    } catch(err){
+        console.log(err)
+        res.send(err);
+    }
+}
+
+
+async function create(req, res) {
+    console.log(req.body, )
+    try {
+        const createRecipeDoc = await RecipeModel.create(req.body)
+        //wait to load before proceeding 
+        res.redirect('/recipes/new')
+    } catch (err) {
+        console.log(err)
+        res.redirect('/recipes/new')
+    }
 }
 
 async function index(req, res) {

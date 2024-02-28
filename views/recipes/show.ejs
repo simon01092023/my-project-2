@@ -10,7 +10,7 @@
 
 <body>
     <nav>
-        <img src="/images/camera.svg">
+        <!-- <img src="/images/camera.svg"> -->
         <!-- A tag is how the client makes an HTTP get request  -->
         <a href="/recipes">ALL RECIPES</a>
         <% if (user) { %>
@@ -21,6 +21,20 @@
                 <% } %>
     </nav>
     <main>
+
+        <div>
+            <%= recipe.recipeName %>
+        </div>
+        <div>
+            <%= recipe.prepTime %>
+        </div>
+        <div>
+            <%= recipe.cookTime %>
+        </div>
+        <div>
+            <%= recipe.ingredients %>
+        </div>
+
     </main>
 </body>
 

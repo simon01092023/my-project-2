@@ -10,14 +10,12 @@ module.exports = {
 
 async function show(req, res) {
     try {
-        const recipeFromTheDatabase = await RecipeModel
-                                            .findById(req.params.id)
-                                            .exec()
-    
-     res.render('recipes/show', {
-        recipe: recipeFromTheDatabase
-     });
-    } catch(err){
+        const recipeFromTheDatabase = await RecipeModel.findById(req.params.id)
+        console.log(recipeFromTheDatabase)
+        res.render('recipes/show', {
+            recipe: recipeFromTheDatabase
+        });
+    } catch (err) {
         console.log(err)
         res.send(err);
     }
@@ -25,7 +23,7 @@ async function show(req, res) {
 
 
 async function create(req, res) {
-    console.log(req.body, )
+    console.log(req.body,)
     try {
         const createRecipeDoc = await RecipeModel.create(req.body)
         //wait to load before proceeding 

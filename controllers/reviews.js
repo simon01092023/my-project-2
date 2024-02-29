@@ -3,6 +3,7 @@ const RecipeModel = require('../models/recipe');
 module.exports = {
     create: create,
     delete: deleteOne
+
 }
 
 async function deleteOne(req, res) {
@@ -34,7 +35,7 @@ async function create(req, res) {
         await recipeDoc.save()
         //wait to tell database you have added review to recipe
         //then respond to client 
-        res.redirect('/recipes/${req.params.id}')
+        res.redirect(`/recipes/${req.params.id}`)
         //tells client to GET request to /recipes/(some ID)
     } catch (err) {
         console.log(err)

@@ -84,19 +84,26 @@
                                         <%= r.rating %>
                                     </td>
                                     <td>
-                                        <% if (user && user._id.equals(r.user)) { %>
-                                            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                                <button type="submit">X</button>
-                                            </form>
-                                            <% } %>
-                                        </td>
-                                        <td>
-                                                <% if (user?._id.equals(r.user)) { %>
+                                        <% recipe.reviews.forEach(function(r) { %>
+                                            <div class="review">
+                                                <% if (user && user._id.equals(r.user)) { %>
                                                     <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                                        <button type="submit">X</button>
+                                                        <button type="submit">delete</button>
                                                     </form>
                                                     <% } %>
+
+
                                     </td>
+
+                                    <% }) %>
+                                        <!-- 
+					  <td>
+						<% if (user?._id.equals(r.user)) { %>
+						  <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+							<button type="submit">X</button>
+						  </form>
+						<% } %>
+					  </td> -->
                                 </tr>
                                 <% }); %>
                         </tbody>
@@ -104,8 +111,3 @@
                     <% } else { %>
                         <h5>No Reviews Yet</h5>
                         <% } %>
-
-    </main>
-</body>
-
-</html>

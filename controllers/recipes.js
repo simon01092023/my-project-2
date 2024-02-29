@@ -11,9 +11,11 @@ module.exports = {
 async function show(req, res) {
     try {
         const recipeFromTheDatabase = await RecipeModel.findById(req.params.id)
-        console.log(recipeFromTheDatabase)
+        // console.log(recipeFromTheDatabase)
         res.render('recipes/show', {
             recipe: recipeFromTheDatabase
+            //Variable in show.ejs
+            //Use in show.ejs
         });
     } catch (err) {
         console.log(err)

@@ -39,7 +39,7 @@ const recipeSchema = new Schema({
     prepTime: Number,
     cookTime: Number,
     ingredients: String,
-    //reviews: [reviewSchema]
+    reviews: [reviewSchema]
 }, {
     timestamps: true
 });

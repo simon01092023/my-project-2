@@ -33,7 +33,9 @@
                 <% recipeDocs.forEach(function(r) { %>
                     <tr>
                         <td>
-                            <%= r.recipeName %>
+                            <a href="/recipes/<%= r._id %>">
+                                <%= r.recipeName %>
+                            </a>
                         </td>
                         <td>
                             <%= r.prepTime %>
@@ -44,7 +46,6 @@
                         <td>
                             <%= r.ingredients %>
                         </td>
-                        <td><a href="/recipes/<%= r._id %>">DETAILS</a></td>
                     </tr>
                     <% }); %>
             </tbody>

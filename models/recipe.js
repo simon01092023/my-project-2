@@ -1,12 +1,12 @@
 
 // Create and export our object Model that controllers will use. 
-// The model performs cruds operations on the movies collection in our recipes database!
+// The model performs cruds operations on the recipe collection in our recipes database!
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-// ONE Recipe HAS MANY REVIEWS
-// A REVIEW BELONGS TO A MOVIE (Using mongoose embedding to implement the relationship)
+// One Recipe has many reviews
+// A Review belongs to a Recipe (Using mongoose embedding to implement the relationship)
 
 // when we use embedding we define the schemas of the relationship in the same file
 // Referencing (each data entity) gets its own model file
@@ -47,3 +47,4 @@ const recipeSchema = new Schema({
 // Compile the schema into a model and export it
 // Recipe creates a recipe collection in our recipes database
 module.exports = mongoose.model('Recipe', recipeSchema);
+

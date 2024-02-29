@@ -90,6 +90,11 @@
                                                     <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
                                                         <button type="submit">delete</button>
                                                     </form>
+                                                    <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
+                                                        <!-- Value attribute is being set to the comment's current text -->
+                                                        <input name="text" value="<%= r.content %>">
+                                                        <button type="submit">Update review</button>
+                                                    </form>
                                                     <% } %>
 
 

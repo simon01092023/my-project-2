@@ -1,30 +1,31 @@
+const recipe = require('../models/recipe');
 const RecipeModel = require('../models/recipe');
 
 module.exports = {
     create: create,
     delete: deleteOne,
-    edit: edit
-
+    edit: edit,
+    update: update
 }
-// async function update(req, res) {
-//     // Note the cool "dot" syntax to query on the property of a subdoc
-//     const book = await Book.findOne({'comments._id': req.params.id});
-//     // Find the comment subdoc using the id method on Mongoose arrays
-//     // https://mongoosejs.com/docs/subdocs.html
-//     const commentSubdoc = book.comments.id(req.params.id);
-//     // Ensure that the comment was created by the logged in user
-//     if (!commentSubdoc.userId.equals(req.user._id)) return res.redirect(`/books/${book._id}`);
-//     // Update the text of the comment
-//     commentSubdoc.text = req.body.text;
-//     try {
-//       await book.save();
-//     } catch (e) {
-//       console.log(e.message);
-//     }
-//     // Redirect back to the book's show view
-//     res.redirect(`/books/${book._id}`);
-//   }
-  
+async function update(req, res) {
+    // Note the cool "dot" syntax to query on the property of a subdoc
+    const recipeDoc = await RecipeModel.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
+    // Find the comment subdoc using the id method on Mongoose arrays
+    // https://mongoosejs.com/docs/subdocs.html
+    const review = recipeDoc.reviews.id(req.params.id);
+    // Ensure that the comment was created by the logged in user
+    if (!review.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);
+    // Update the text of the comment
+    review.content = req.body.text;
+    try {
+        await recipeDoc.save();
+    } catch (e) {
+        console.log(e.message);
+    }
+    // Redirect back to the recipe show view
+    res.redirect(`/recipes/${recipeDoc._id}`);
+}
+
 
 async function edit(req, res) {
     // Note the cool "dot" syntax to query on the property of a subdoc
@@ -34,7 +35,7 @@ async function edit(req, res) {
     const review = recipeDoc.reviews.id(req.params.id);
     // Render the comments/edit.ejs template, passing to it the comment
     res.render('reviews/edit', { review });
-  }
+}
 
 async function deleteOne(req, res) {
     try {

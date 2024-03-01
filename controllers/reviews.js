@@ -11,7 +11,6 @@ async function update(req, res) {
     // Note the cool "dot" syntax to query on the property of a subdoc
     const recipeDoc = await RecipeModel.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
     // Find the comment subdoc using the id method on Mongoose arrays
-    // https://mongoosejs.com/docs/subdocs.html
     const review = recipeDoc.reviews.id(req.params.id);
     // Ensure that the comment was created by the logged in user
     if (!review.user.equals(req.user._id)) return res.redirect(`/recipes/${recipe._id}`);

@@ -25,7 +25,6 @@ async function show(req, res) {
 
 
 async function create(req, res) {
-    console.log(req.body,)
     try {
         const createRecipeDoc = await RecipeModel.create(req.body)
         //wait to load before proceeding 
@@ -42,7 +41,6 @@ async function index(req, res) {
     try {
         // We want our model to go to the database and get all the recipes
         const recipeDocumentsFromTheDB = await RecipeModel.find({})
-        console.log(recipeDocumentsFromTheDB)
         // then we want to send a ejs page with all the recipes to the browser
         // recipes/index is looking in the views folder for the ejs page
         res.render('recipes/index', { recipeDocs: recipeDocumentsFromTheDB })

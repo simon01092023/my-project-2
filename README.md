@@ -23,7 +23,7 @@ To run this project, you need to have Node.js and MongoDB installed on your mach
 - GOOGLE_CLIENT_ID= your-google-client-id # The client ID for Google OAuth2
 - GOOGLE_CLIENT_SECRET= your-google-client-secret # The client secret for Google OAuth2
 <p>
-  <img src="screenshots/1.png" width="350" title="hover text">
+  <img src="screenshots/1.png" width="350" title="SeiRocks!">
 </p>
 
 ## Getting Started

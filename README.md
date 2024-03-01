@@ -1,35 +1,34 @@
-# passport-boilerplate
+# 📖 Recipe App 🍽️
 
+- This is a simple web application that allows users to Create and Read recipes. 
+- Create, Read, Update/Edit, or Delete your own reviews.
+- Users can also login using their Google account using OAuth2.
 
-This is your passport boilerplate.
+## Technologies 💻
 
-## Setup 
+This project is built with the following technologies:
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+- MongoDB: A document-based database that stores data in JSON-like format.
+- Mongoose: An object data modeling (ODM) library that provides a schema-based solution to model data for MongoDB.
+- Express: A web framework for Node.js that handles routing, middleware and server-side logic.
+- Node.js: A runtime environment that executes JavaScript code outside the browser.
+- Passport: An authentication middleware for Node.js that supports various strategies, including Google OAuth2.
 
+## ⚡ Installation ⚡
+To run this project, you need to have Node.js and MongoDB installed on your machine. 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+.env file in the root directory of the project and add the following variables:
+- PORT= The port number for the server
+- MONGO_URI= The connection string for MongoDB
+- GOOGLE_CLIENT_ID= your-google-client-id # The client ID for Google OAuth2
+- GOOGLE_CLIENT_SECRET= your-google-client-secret # The client secret for Google OAuth2
+<p>
+  <img src="screenshots/1.png" width="350" title="hover text">
+</p>
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+## Getting Started
+   #### 👨‍🍳 [App Link ]<https://busy-cyan-ladybug-garb.cyclic.app/>
+#### 📁 [Trello Link]<https://trello.com/b/1VBqOoDp/recipes>
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
-
-#### Make a commit 
-
-```git commit -m "setup up oauth and User Model"```
+## Next Steps: Planned Future Enhancements
+- Add a search/find function 🔍🔦

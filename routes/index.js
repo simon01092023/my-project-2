@@ -3,7 +3,7 @@ const passport = require('passport');
 
 // The root route renders our only view
 router.get('/', function (req, res, next) {
-  
+
   // This is localhost:3000 root route
   // Landing page, or just redirect to your main resource page 
   res.render('index')

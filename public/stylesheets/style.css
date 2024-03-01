@@ -137,3 +137,22 @@ p {
 textarea {
   font-size: 18px;
 }
+
+.rating {
+  font-size: 40px;
+}
+
+.container {
+  display: table-cell;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.welcome {
+  font-size: 36px;
+  color: white;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}

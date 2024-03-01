@@ -1,107 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-    <nav>
-        <!-- <img src="/images/camera.svg"> -->
-        <!-- A tag is how the client makes an HTTP get request  -->
-        <a href="/recipes">ALL RECIPES</a>
-        <% if (user) { %>
-            <a href="/recipes/new">ADD RECIPES</a>
-            <a href="/logout">LOG OUT</a>
-            <% } else { %>
-                <a href="/auth/google">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-                <% } %>
-    </nav>
-    <main>
-
-        <div>
-            <%= recipe.recipeName %>
-        </div>
-        <div>
-            <%= recipe.prepTime %>
-        </div>
-        <div>
-            <%= recipe.cookTime %>
-        </div>
-        <div>
-            <%= recipe.ingredients %>
-        </div>
-        <br><br>
-        <h2>Reviews</h2>
-
-        <% if (user) { %>
-            <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
-                <label>Review:</label>
-                <textarea name="content"></textarea>
-                <label>Rating:</label>
-                <select name="rating">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" selected>5</option>
-                </select>
-                <input type="submit" value="Add Review">
-            </form>
-            <% } %>
+<%- include('./partials/header') %>
 
 
-                <% if (recipe.reviews.length) { %>
-                    <table>
-                        <thead>
+    <div>
+        <%= recipe.recipeName %>
+    </div>
+    <div>
+        <%= recipe.prepTime %>
+    </div>
+    <div>
+        <%= recipe.cookTime %>
+    </div>
+    <div>
+        <%= recipe.ingredients %>
+    </div>
+    <br><br>
+    <h2>Reviews</h2>
+
+    <% if (user) { %>
+        <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+            <label>Review:</label>
+            <textarea name="content"></textarea>
+            <label>Rating:</label>
+            <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+            </select>
+            <input type="submit" value="Add Review">
+        </form>
+        <% } %>
+
+
+            <% if (recipe.reviews.length) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Review</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% recipe.reviews.forEach(function(r) { %>
                             <tr>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>Review</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% recipe.reviews.forEach(function(r) { %>
-                                <tr>
-                                    <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"
-                                            referrerpolicy="no-referrer">
-                                        <%= r.userName %>
-                                    </td>
-                                    <td>
-                                        <%= r.createdAt.toLocaleDateString() %>
-                                    </td>
-                                    <td>
-                                        <%= r.createdAt.toLocaleDateString() %>
-                                    </td>
-                                    <td>
-                                        <%= r.content %>
-                                    </td>
-                                    <td>
-                                        <%= r.rating %>
-                                    </td>
-                                    <td>
-                                        <% recipe.reviews.forEach(function(r) { %>
-                                            <div class="review">
-                                                <% if (user && user._id.equals(r.user)) { %>
-                                                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                                        <button type="submit">delete</button>
-                                                    </form>
-                                                    <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
-                                                        <!-- Value attribute is being set to the comment's current text -->
-                                                        <input name="text" value="<%= r.content %>">
-                                                        <button type="submit">Update review</button>
-                                                    </form>
-                                                    <% } %>
+                                <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"
+                                        referrerpolicy="no-referrer">
+                                    <%= r.userName %>
+                                </td>
+                                <td>
+                                    <%= r.createdAt.toLocaleDateString() %>
+                                </td>
+                                <td>
+                                    <%= r.createdAt.toLocaleDateString() %>
+                                </td>
+                                <td>
+                                    <%= r.content %>
+                                </td>
+                                <td>
+                                    <%= r.rating %>
+                                </td>
+                                <td>
+                                    <% recipe.reviews.forEach(function(r) { %>
+                                        <div class="review">
+                                            <% if (user && user._id.equals(r.user)) { %>
+                                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                                    <button type="submit">delete</button>
+                                                </form>
+                                                <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
+                                                    <!-- Value attribute is being set to the comment's current text -->
+                                                    <input name="text" value="<%= r.content %>">
+                                                    <button type="submit">Update review</button>
+                                                </form>
+                                                <% } %>
 
 
-                                    </td>
+                                </td>
 
-                                    <% }) %>
-                                        <!-- 
+                                <% }) %>
+                                    <!-- 
 					  <td>
 						<% if (user?._id.equals(r.user)) { %>
 						  <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
@@ -109,14 +88,11 @@
 						  </form>
 						<% } %>
 					  </td> -->
-                                </tr>
-                                <% }); %>
-                        </tbody>
-                    </table>
-                    <% } else { %>
-                        <h5>No Reviews Yet</h5>
-                        <% } %>
-    </main>
-</body>
-
-</html>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h5>No Reviews Yet</h5>
+                    <% } %>
+                        <%- include('./partials/footer') %>

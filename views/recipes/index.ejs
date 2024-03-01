@@ -1,57 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-    <nav>
-        <img src="/images/camera.svg">
-        <!-- A tag is how the client makes an HTTP get request  -->
-        <a href="/recipes">ALL RECIPES</a>
-        <% if (user) { %>
-            <a href="/recipes/new">ADD RECIPES</a>
-            <a href="/logout">LOG OUT</a>
-            <% } else { %>
-                <a href="/auth/google">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-                <% } %>
-    </nav>
-    <main>
-        <table id="fullList">
-            <thead>
+<%- include('../partials/header') %>
+    <table id="fullList">
+        <thead>
+            <tr>
+                <th>Recipe</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% recipeDocs.forEach(function(r) { %>
                 <tr>
-                    <th>Recipe</th>
-                    <th></th>
-                    <th></th>
+                    <td>
+                        <a href="/recipes/<%= r._id %>">
+                            <%= r.recipeName %>
+                        </a>
+                    </td>
+                    <td>
+                        <%= r.prepTime %>
+                    </td>
+                    <td>
+                        <%= r.cookTime %>
+                    </td>
+                    <td>
+                        <%= r.ingredients %>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <% recipeDocs.forEach(function(r) { %>
-                    <tr>
-                        <td>
-                            <a href="/recipes/<%= r._id %>">
-                                <%= r.recipeName %>
-                            </a>
-                        </td>
-                        <td>
-                            <%= r.prepTime %>
-                        </td>
-                        <td>
-                            <%= r.cookTime %>
-                        </td>
-                        <td>
-                            <%= r.ingredients %>
-                        </td>
-                    </tr>
-                    <% }); %>
-            </tbody>
+                <% }); %>
+        </tbody>
 
-        </table>
-    </main>
-</body>
-
-</html>
+    </table>
+    <%- include('../partials/footer') %>

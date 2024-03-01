@@ -43,7 +43,7 @@ async function index(req, res) {
         const recipeDocumentsFromTheDB = await RecipeModel.find({})
         // then we want to send a ejs page with all the recipes to the browser
         // recipes/index is looking in the views folder for the ejs page
-        res.render('recipes/index', { recipeDocs: recipeDocumentsFromTheDB })
+        res.render('recipes/index', { recipeDocs: recipeDocumentsFromTheDB }) 
         // recipeDocs is now a variables inside of views/recipe/index.ejs 
     } catch (err) {
         console.log(err)

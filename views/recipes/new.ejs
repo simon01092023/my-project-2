@@ -1,43 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-    <nav>
-        <!-- <img src="/images/*add image*"> -->
-        <!-- A tag is how the client makes an HTTP get request  -->
-        <a href="/recipes">ALL RECIPES</a>
-        <% if (user) { %>
-            <a href="/recipes/new">ADD RECIPES</a>
-            <a href="/logout">LOG OUT</a>
-            <% } else { %>
-                <a href="/auth/google">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-                <% } %>
-    </nav>
-    <main>
-        <h2>Enter a New Recipe</h2>
-        <form action="/recipes" method="POST">
-            <label>Title:
-                <input type="text" name="recipeName">
-            </label><br>
-            <label>Prep Time (in minutes):
-                <input type="number" name="prepTime">
-            </label><br>
-            <label>Cook Time (in minutes):
-                <input type="number" name="cookTime">
-            </label><br>
-            <label>Ingredients:
-                <input type="string" name="ingredients">
-            </label><br>
-            <button type="submit">Add Recipe</button>
-        </form>
-    </main>
-</body>
-
-</html>
+<%- include('../partials/header') %>
+    <h2>Enter a New Recipe</h2>
+    <form action="/recipes" method="POST">
+        <label>Title:
+            <input type="text" name="recipeName">
+        </label><br>
+        <label>Prep Time (in minutes):
+            <input type="number" name="prepTime">
+        </label><br>
+        <label>Cook Time (in minutes):
+            <input type="number" name="cookTime">
+        </label><br>
+        <label>Ingredients:
+            <input type="string" name="ingredients">
+        </label><br>
+        <button type="submit">Add Recipe</button>
+    </form>
+    <%- include('../partials/footer') %>

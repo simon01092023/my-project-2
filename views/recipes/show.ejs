@@ -5,12 +5,15 @@
         <%= recipe.recipeName %>
     </div>
     <div>
-        <%= recipe.prepTime %>
+        <p>Preparation Time</p>
+        <%= recipe.prepTime %> minutes
     </div>
     <div>
-        <%= recipe.cookTime %>
+        <p>Cooking Time</p>
+        <%= recipe.cookTime %> minutes
     </div>
     <div>
+        <p>Ingredients</p>
         <%= recipe.ingredients %>
     </div>
     <br><br>
@@ -19,7 +22,7 @@
     <% if (user) { %>
         <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
             <label>Review:</label>
-            <textarea name="content"></textarea>
+            <textarea name="content" rows="5" cols="25"></textarea>
             <label>Rating:</label>
             <select name="rating">
                 <option value="1">1</option>
@@ -54,9 +57,6 @@
                                     <%= r.createdAt.toLocaleDateString() %>
                                 </td>
                                 <td>
-                                    <%= r.createdAt.toLocaleDateString() %>
-                                </td>
-                                <td>
                                     <%= r.content %>
                                 </td>
                                 <td>
@@ -67,18 +67,15 @@
                                         <div class="review">
                                             <% if (user && user._id.equals(r.user)) { %>
                                                 <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                                    <button type="submit">delete</button>
+                                                    <button class="redbtn" type="submit">Delete</button>
                                                 </form>
                                                 <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
                                                     <!-- Value attribute is being set to the comment's current text -->
                                                     <input name="text" value="<%= r.content %>">
-                                                    <button type="submit">Update review</button>
+                                                    <button class="yellowbtn" type="submit">Update review</button>
                                                 </form>
                                                 <% } %>
-
-
                                 </td>
-
                                 <% }) %>
                                     <!-- 
 					  <td>

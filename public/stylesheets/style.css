@@ -1,20 +1,139 @@
-.brand-logo {
-  margin-left: 15px;
+header {
+  position: fixed;
+  /* Make the header fixed to the top of the page */
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  /* Set the background color of the header */
 }
 
-.card .card-content .card-title {
+.logo {
+  height: 80px;
+  margin: 10px;
+}
+
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 24px;
+  display: inline-block;
+  font-weight: bold;
+
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 10px;
+
+}
+
+table {
+  border: 2px solid black;
+  /* Collapse the borders into a single line */
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+th,
+td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.greenbtn {
+
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+
+}
+
+.yellowbtn {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: yellow;
+  color: red;
+}
+
+.redbtn {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: red;
+  color: black;
+}
+
+form {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  width: 80%;
+  background-color: #f0f0f0;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+label {
+  display: grid;
+  place-content: center;
   margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-#search-row form {
-  padding-top: 20px;
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
-.student-name {
-  position: relative;
-  top: -5px;
+div {
+  display: grid;
+  place-content: center;
+  font-weight: bold;
 }
 
-.collection-item form {
-  margin-top: -5px;
+p {
+  display: grid;
+  place-content: center;
+  font-weight: lighter;
+}
+
+#add-review-form {
+  display: grid;
+  place-content: center;
+}
+
+textarea {
+  font-size: 18px;
 }

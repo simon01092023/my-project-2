@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
     <h2>Enter a New Recipe</h2>
     <form action="/recipes" method="POST">
-        <label>Title:
+        <label>Name of Your Recipe:
             <input type="text" name="recipeName">
         </label><br>
         <label>Prep Time (in minutes):
@@ -10,9 +10,9 @@
         <label>Cook Time (in minutes):
             <input type="number" name="cookTime">
         </label><br>
-        <label>Ingredients:
+        <label>Ingredients (use commas to separate each)
             <input type="string" name="ingredients">
         </label><br>
-        <button type="submit">Add Recipe</button>
+        <button class="greenbtn" type="submit" rows="10" cols="50">Add Recipe</button>
     </form>
     <%- include('../partials/footer') %>

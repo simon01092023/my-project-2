@@ -37,11 +37,11 @@ async function create(req, res) {
 
 async function index(req, res) {
 
-    // then we want to send a ejs page with all the recipes to the browser
+    // send a ejs page with all the recipes to the browser
     try {
-        // We want our model to go to the database and get all the recipes
+        // model go to the database and get all the recipes
         const recipeDocumentsFromTheDB = await RecipeModel.find({})
-        // then we want to send a ejs page with all the recipes to the browser
+        // send a ejs page with all the recipes to the browser
         // recipes/index is looking in the views folder for the ejs page
         res.render('recipes/index', { recipeDocs: recipeDocumentsFromTheDB }) 
         // recipeDocs is now a variables inside of views/recipe/index.ejs 
